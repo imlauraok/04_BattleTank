@@ -17,6 +17,13 @@ void ATankAIController::BeginPlay()
 	}
 }
 
+void ATankAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	// AimTowardsCrosshair();
+	UE_LOG(LogTemp, Warning, TEXT("Player controller ticking"))
+}
+
 ATank* ATankAIController::GetControlledTank() const
 {
 	return Cast<ATank>(GetPawn());
@@ -27,4 +34,13 @@ ATank * ATankAIController::GetPlayerTank() const
 	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
 	if (!PlayerPawn) { return nullptr; }
 	return Cast<ATank>(PlayerPawn);
+}
+
+void ATankAIController::AimTowardsCrosshair()
+{
+	if (!GetControlledTank()) { return; }
+
+	// Get world location through crosshair
+	// If it hits the landscape
+		// Tell controlled tank to aim at this point
 }
