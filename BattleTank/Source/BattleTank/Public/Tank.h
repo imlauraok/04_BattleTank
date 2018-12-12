@@ -6,7 +6,7 @@
 #include "Tank.generated.h"
 
 class UTankBarrel;
-class UTankMovementComponent;
+class UTankAimingComponent;
 class AProjectile;
 
 UCLASS()
@@ -23,9 +23,6 @@ public:
 protected:
 	UPROPERTY(BlueprintReadOnly)
 	UTankAimingComponent* TankAimingComponent = nullptr;
-
-	UPROPERTY(BlueprintReadOnly)
-	UTankMovementComponent* TankMovementComponent = nullptr;
 
 private:
 	// Sets default values for this pawn's properties
